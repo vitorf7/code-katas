@@ -2,104 +2,35 @@
 
 namespace VitorF7\CodeKatas\GildedRose;
 
+/**
+ * Class GildedRose
+ *
+ * @package VitorF7\CodeKatas\GildedRose
+ */
 class GildedRose
 {
-    public $name;
+    /**
+     * @var array
+     */
+    protected static $lookup = [
+        'normal' => NormalItem::class,
+        'Aged Brie' => BrieItem::class,
+        'Sulfuras, Hand of Ragnaros' => SulfurasItem::class,
+        'Backstage passes to a TAFKAL80ETC concert' => BackstagePassItem::class,
+        'Conjured Mana Cake' => ConjuredItem::class
+    ];
 
-    public $quality;
-
-    public $sellIn;
-
-    public function __construct($name, $quality, $sellIn)
-    {
-        $this->name = $name;
-        $this->quality = $quality;
-        $this->sellIn = $sellIn;
-    }
-
+    /**
+     * @param $name
+     * @param $quality
+     * @param $sellIn
+     *
+     * @return mixed
+     */
     public static function of($name, $quality, $sellIn)
     {
-        return new static($name, $quality, $sellIn);
-    }
+        $class = isset(static::$lookup[$name]) ? static::$lookup[$name] : NormalItem::class;
 
-    public function tick()
-    {
-        if ($this->name == 'normal') {
-            return $this->normalTick();
-        }
-
-        if ($this->name == 'Aged Brie') {
-            return $this->brieTick();
-        }
-
-        if ($this->name != 'Aged Brie' and $this->name != 'Backstage passes to a TAFKAL80ETC concert') {
-            if ($this->quality > 0) {
-                if ($this->name != 'Sulfuras, Hand of Ragnaros') {
-                    $this->quality = $this->quality - 1;
-                }
-            }
-        } else {
-            if ($this->quality < 50) {
-                $this->quality = $this->quality + 1;
-
-                if ($this->name == 'Backstage passes to a TAFKAL80ETC concert') {
-                    if ($this->sellIn < 11) {
-                        if ($this->quality < 50) {
-                            $this->quality = $this->quality + 1;
-                        }
-                    }
-                    if ($this->sellIn < 6) {
-                        if ($this->quality < 50) {
-                            $this->quality = $this->quality + 1;
-                        }
-                    }
-                }
-            }
-        }
-
-        if ($this->name != 'Sulfuras, Hand of Ragnaros') {
-            $this->sellIn = $this->sellIn - 1;
-        }
-
-        if ($this->sellIn < 0) {
-            if ($this->name != 'Aged Brie') {
-                if ($this->name != 'Backstage passes to a TAFKAL80ETC concert') {
-                    if ($this->quality > 0) {
-                        if ($this->name != 'Sulfuras, Hand of Ragnaros') {
-                            $this->quality = $this->quality - 1;
-                        }
-                    }
-                } else {
-                    $this->quality = $this->quality - $this->quality;
-                }
-            } else {
-                if ($this->quality < 50) {
-                    $this->quality = $this->quality + 1;
-                }
-            }
-        }
-    }
-
-    private function normalTick()
-    {
-        $this->sellIn -= 1;
-
-        if ($this->quality == 0) {
-            return;
-        }
-
-        if ($this->sellIn <= 0) {
-            $this->quality -= 1;
-        }
-
-        $this->quality -= 1;
-    }
-
-    private function brieTick()
-    {
-        if ($this->quality < 50) {
-            $this->quality += 1;
-        }
-        $this->sellIn -= 1;
+        return new $class($name, $quality, $sellIn);
     }
 }

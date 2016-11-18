@@ -1,16 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: vitorfaiante
- * Date: 17/11/2016
- * Time: 17:25
- */
 
 namespace VitorF7\CodeKatas\Tests\GildedRose;
 
-
 use VitorF7\CodeKatas\GildedRose\GildedRose;
-
 
 class GildedRoseTest extends \PHPUnit_Framework_TestCase
 {
@@ -184,7 +176,8 @@ class GildedRoseTest extends \PHPUnit_Framework_TestCase
     /** @test */
     public function it_updates_backstage_pass_items_before_sell_date()
     {
-        $item = GildedRose::of('Backstage passes to a TAFKAL80ETC concert', 10, 11); // name, quality, sell in x days
+        $item = GildedRose::of('Backstage passes to a TAFKAL80ETC concert', 10,
+            11); // name, quality, sell in x days
 
         $item->tick();
 
@@ -195,7 +188,8 @@ class GildedRoseTest extends \PHPUnit_Framework_TestCase
     /** @test */
     public function it_updates_backstage_pass_items_close_to_sell_date()
     {
-        $item = GildedRose::of('Backstage passes to a TAFKAL80ETC concert', 10, 10); // name, quality, sell in x days
+        $item = GildedRose::of('Backstage passes to a TAFKAL80ETC concert', 10,
+            10); // name, quality, sell in x days
 
         $item->tick();
 
@@ -206,7 +200,8 @@ class GildedRoseTest extends \PHPUnit_Framework_TestCase
     /** @test */
     public function it_updates_backstage_pass_items_close_to_sell_date_at_max_quality()
     {
-        $item = GildedRose::of('Backstage passes to a TAFKAL80ETC concert', 50, 10); // name, quality, sell in x days
+        $item = GildedRose::of('Backstage passes to a TAFKAL80ETC concert', 50,
+            10); // name, quality, sell in x days
 
         $item->tick();
 
@@ -217,7 +212,8 @@ class GildedRoseTest extends \PHPUnit_Framework_TestCase
     /** @test */
     public function it_updates_backstage_pass_items_very_close_to_sell_date()
     {
-        $item = GildedRose::of('Backstage passes to a TAFKAL80ETC concert', 10, 5); // name, quality, sell in x days
+        $item = GildedRose::of('Backstage passes to a TAFKAL80ETC concert', 10,
+            5); // name, quality, sell in x days
 
         $item->tick();
 
@@ -228,7 +224,8 @@ class GildedRoseTest extends \PHPUnit_Framework_TestCase
     /** @test */
     public function it_updates_backstage_pass_items_very_close_to_sell_date_at_max_quality()
     {
-        $item = GildedRose::of('Backstage passes to a TAFKAL80ETC concert', 50, 5); // name, quality, sell in x days
+        $item = GildedRose::of('Backstage passes to a TAFKAL80ETC concert', 50,
+            5); // name, quality, sell in x days
 
         $item->tick();
 
@@ -239,7 +236,8 @@ class GildedRoseTest extends \PHPUnit_Framework_TestCase
     /** @test */
     public function it_updates_backstage_pass_items_with_one_day_left()
     {
-        $item = GildedRose::of('Backstage passes to a TAFKAL80ETC concert', 10, 1); // name, quality, sell in x days
+        $item = GildedRose::of('Backstage passes to a TAFKAL80ETC concert', 10,
+            1); // name, quality, sell in x days
 
         $item->tick();
 
@@ -250,7 +248,8 @@ class GildedRoseTest extends \PHPUnit_Framework_TestCase
     /** @test */
     public function it_updates_backstage_pass_items_with_one_day_left_at_max_quality()
     {
-        $item = GildedRose::of('Backstage passes to a TAFKAL80ETC concert', 50, 1); // name, quality, sell in x days
+        $item = GildedRose::of('Backstage passes to a TAFKAL80ETC concert', 50,
+            1); // name, quality, sell in x days
 
         $item->tick();
 
@@ -261,7 +260,8 @@ class GildedRoseTest extends \PHPUnit_Framework_TestCase
     /** @test */
     public function it_updates_backstage_pass_items_on_sell_date()
     {
-        $item = GildedRose::of('Backstage passes to a TAFKAL80ETC concert', 10, 0); // name, quality, sell in x days
+        $item = GildedRose::of('Backstage passes to a TAFKAL80ETC concert', 10,
+            0); // name, quality, sell in x days
 
         $item->tick();
 
@@ -272,7 +272,8 @@ class GildedRoseTest extends \PHPUnit_Framework_TestCase
     /** @test */
     public function it_updates_backstage_pass_items_after_sell_date()
     {
-        $item = GildedRose::of('Backstage passes to a TAFKAL80ETC concert', 10, -1); // name, quality, sell in x days
+        $item = GildedRose::of('Backstage passes to a TAFKAL80ETC concert', 10,
+            -1); // name, quality, sell in x days
 
         $item->tick();
 
@@ -287,69 +288,69 @@ class GildedRoseTest extends \PHPUnit_Framework_TestCase
      */
 
 
-    // /** @test */
-    // public function it_updates_conjured_items_before_sell_date()
-    // {
-    //     $item = GildedRose::of('Conjured Mana Cake', 10, 10); // name, quality, sell in x days
-    //
-    //     $item->tick();
-    //
-    //     $this->assertEquals(8, $item->quality);
-    //     $this->assertEquals(9, $item->sellIn);
-    // }
-    //
-    // /** @test */
-    // public function it_updates_conjured_items_at_zero()
-    // {
-    //     $item = GildedRose::of('Conjured Mana Cake', 0, 10); // name, quality, sell in x days
-    //
-    //     $item->tick();
-    //
-    //     $this->assertEquals(0, $item->quality);
-    //     $this->assertEquals(9, $item->sellIn);
-    // }
-    //
-    // /** @test */
-    // public function it_updates_conjured_items_on_sell_date()
-    // {
-    //     $item = GildedRose::of('Conjured Mana Cake', 10, 0); // name, quality, sell in x days
-    //
-    //     $item->tick();
-    //
-    //     $this->assertEquals(6, $item->quality);
-    //     $this->assertEquals(-1, $item->sellIn);
-    // }
-    //
-    // /** @test */
-    // public function it_updates_conjured_items_on_sell_date_at_zero_quality()
-    // {
-    //     $item = GildedRose::of('Conjured Mana Cake', 0, 0); // name, quality, sell in x days
-    //
-    //     $item->tick();
-    //
-    //     $this->assertEquals(0, $item->quality);
-    //     $this->assertEquals(-1, $item->sellIn);
-    // }
-    //
-    // /** @test */
-    // public function it_updates_conjured_items_after_sell_date()
-    // {
-    //     $item = GildedRose::of('Conjured Mana Cake', 10, -10); // name, quality, sell in x days
-    //
-    //     $item->tick();
-    //
-    //     $this->assertEquals(6, $item->quality);
-    //     $this->assertEquals(-11, $item->sellIn);
-    // }
-    //
-    // /** @test */
-    // public function it_updates_conjured_items_after_sell_date_at_zero_quality()
-    // {
-    //     $item = GildedRose::of('Conjured Mana Cake', 0, -10); // name, quality, sell in x days
-    //
-    //     $item->tick();
-    //
-    //     $this->assertEquals(0, $item->quality);
-    //     $this->assertEquals(-11, $item->sellIn);
-    // }
+    /** @test */
+    public function it_updates_conjured_items_before_sell_date()
+    {
+        $item = GildedRose::of('Conjured Mana Cake', 10, 10); // name, quality, sell in x days
+
+        $item->tick();
+
+        $this->assertEquals(8, $item->quality);
+        $this->assertEquals(9, $item->sellIn);
+    }
+
+    /** @test */
+    public function it_updates_conjured_items_at_zero()
+    {
+        $item = GildedRose::of('Conjured Mana Cake', 0, 10); // name, quality, sell in x days
+
+        $item->tick();
+
+        $this->assertEquals(0, $item->quality);
+        $this->assertEquals(9, $item->sellIn);
+    }
+
+    /** @test */
+    public function it_updates_conjured_items_on_sell_date()
+    {
+        $item = GildedRose::of('Conjured Mana Cake', 10, 0); // name, quality, sell in x days
+
+        $item->tick();
+
+        $this->assertEquals(6, $item->quality);
+        $this->assertEquals(-1, $item->sellIn);
+    }
+
+    /** @test */
+    public function it_updates_conjured_items_on_sell_date_at_zero_quality()
+    {
+        $item = GildedRose::of('Conjured Mana Cake', 0, 0); // name, quality, sell in x days
+
+        $item->tick();
+
+        $this->assertEquals(0, $item->quality);
+        $this->assertEquals(-1, $item->sellIn);
+    }
+
+    /** @test */
+    public function it_updates_conjured_items_after_sell_date()
+    {
+        $item = GildedRose::of('Conjured Mana Cake', 10, -10); // name, quality, sell in x days
+
+        $item->tick();
+
+        $this->assertEquals(6, $item->quality);
+        $this->assertEquals(-11, $item->sellIn);
+    }
+
+    /** @test */
+    public function it_updates_conjured_items_after_sell_date_at_zero_quality()
+    {
+        $item = GildedRose::of('Conjured Mana Cake', 0, -10); // name, quality, sell in x days
+
+        $item->tick();
+
+        $this->assertEquals(0, $item->quality);
+        $this->assertEquals(-11, $item->sellIn);
+    }
 }
