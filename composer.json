@@ -3,7 +3,7 @@
   "description": "PHP Code Katas to learn TDD",
   "type": "project",
   "require": {
-    "phpunit/phpunit": "^5.6"
+    "phpunit/phpunit": "*"
   },
   "autoload": {
     "psr-4": {
@@ -11,11 +11,5 @@
       "VitorF7\\CodeKatas\\Tests\\": "tests"
     }
   },
-  "authors": [
-    {
-      "name": "Vitor Faiante",
-      "email": "vitorf7@gmail.com"
-    }
-  ],
   "minimum-stability": "dev"
 }
