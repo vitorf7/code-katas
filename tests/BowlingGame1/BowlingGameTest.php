@@ -3,12 +3,13 @@
 namespace VitorF7\CodeKatas\Tests\BowlingGame1;
 
 use VitorF7\CodeKatas\BowlingGame1\BowlingGame;
+use PHPUnit\Framework\TestCase;
 
-class BowlingGameTest extends \PHPUnit_Framework_TestCase
+class BowlingGameTest extends TestCase
 {
     private $game;
 
-    public function setUp()
+    public function setUp():void
     {
         $this->game = new BowlingGame();
     }

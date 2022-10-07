@@ -4,14 +4,15 @@ namespace VitorF7\CodeKatas\Tests\TennisGame1;
 
 use VitorF7\CodeKatas\TennisGame1\Player;
 use VitorF7\CodeKatas\TennisGame1\TennisGame;
+use PHPUnit\Framework\TestCase;
 
-class TennisGameTest extends \PHPUnit_Framework_TestCase
+class TennisGameTest extends TestCase
 {
     protected $tennisGame;
     protected $john;
     protected $jane;
 
-    public function setUp()
+    public function setUp():void
     {
         $this->john = new Player('John Doe', 0);
         $this->jane = new Player('Jane Doe', 0);

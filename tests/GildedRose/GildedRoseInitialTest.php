@@ -3,8 +3,9 @@
 namespace VitorF7\CodeKatas\Tests\GildedRose;
 
 use VitorF7\CodeKatas\GildedRose\GildedRoseInitial;
+use PHPUnit\Framework\TestCase;
 
-class GildedRoseInitialTest extends \PHPUnit_Framework_TestCase
+class GildedRoseInitialTest extends TestCase
 {
     /**
      * ============================

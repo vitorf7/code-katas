@@ -5,20 +5,21 @@ namespace VitorF7\CodeKatas\Tests\FizzBuzz1;
 
 use VitorF7\CodeKatas\FizzBuzz1\FizzBuzz;
 use VitorF7\CodeKatas\FizzBuzz1\FizzBuzzMaxException;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class FizzBuzzTest
  *
  * @package VitorF7\CodeKatas\Tests
  */
-class FizzBuzzTest extends \PHPUnit_Framework_TestCase
+class FizzBuzzTest extends TestCase
 {
     /**
      * @var
      */
     protected $fizzBuzz;
 
-    public function setUp()
+    public function setUp():void
     {
         $this->fizzBuzz = new FizzBuzz();
     }

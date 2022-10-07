@@ -3,12 +3,13 @@
 namespace VitorF7\CodeKatas\Tests\StringCalculator1;
 
 use VitorF7\CodeKatas\StringCalculator1\StringCalculator;
+use PHPUnit\Framework\TestCase;
 
-class StringCalculatorTest extends \PHPUnit_Framework_TestCase
+class StringCalculatorTest extends TestCase
 {
     protected $stringCalculator;
 
-    public function setUp()
+    public function setUp():void
     {
         $this->stringCalculator = new StringCalculator();
     }

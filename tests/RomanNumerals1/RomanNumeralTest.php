@@ -3,12 +3,13 @@
 namespace VitorF7\CodeKatas\Tests\RomanNumerals1;
 
 use VitorF7\CodeKatas\RomanNumerals1\RomanNumeral;
+use PHPUnit\Framework\TestCase;
 
-class RomanNumeralTest extends \PHPUnit_Framework_TestCase
+class RomanNumeralTest extends TestCase
 {
     protected $romanNumeral;
 
-    public function setUp()
+    public function setUp():void
     {
         $this->romanNumeral = new RomanNumeral();
     }

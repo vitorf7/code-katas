@@ -3,12 +3,13 @@
 namespace VitorF7\CodeKatas\Tests\PrimeFactors1;
 
 use VitorF7\CodeKatas\PrimeFactors1\PrimeFactors;
+use PHPUnit\Framework\TestCase;
 
-class PrimeFactorsTest extends \PHPUnit_Framework_TestCase
+class PrimeFactorsTest extends TestCase
 {
     protected $primeFactors;
 
-    public function setUp()
+    public function setUp():void
     {
         $this->primeFactors = new PrimeFactors();
     }
