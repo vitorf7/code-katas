@@ -1,7 +1,6 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace VitorF7\CodeKatas\Tests\FizzBuzz1;
-
 
 use VitorF7\CodeKatas\FizzBuzz1\FizzBuzz;
 use VitorF7\CodeKatas\FizzBuzz1\FizzBuzzMaxException;
